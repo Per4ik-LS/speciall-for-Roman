@@ -15,13 +15,12 @@ from PyQt5.QtGui import (
     QPolygon,
 )
 
-from PyQt5 import uic
+from window_ui import Ui_MainWindow
 
-
-class MainWindow(QMainWindow):
+class MainWindow(QMainWindow, Ui_MainWindow):
     def __init__(self) -> None:
         super().__init__()
-        uic.loadUi('UI.ui', self)
+        self.setupUi(self)
         self._init_ui()
         self.should_draw = False
 
