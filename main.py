@@ -42,10 +42,14 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         qp.end()
 
     def draw_circle(self, qp):
-        qp.setBrush(QColor('yellow'))
+        color = self._get_random_color()
+        qp.setBrush(color)
         diametr = random.randint(70, 200)
         start = 60
         qp.drawEllipse(start, start, start + diametr, start + diametr)
+
+    def _get_random_color(self) -> QColor:
+        return QColor.fromHsv(randint(0, 359), 255, 255, 255)
 
 
 
